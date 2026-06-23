@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import {
   ComposableMap,
   Geographies,
   Geography,
   Marker,
   Line,
+  type Geography as GeoFeature,
 } from 'react-simple-maps'
 
 const GEO_URL = '/world-110m.json'
@@ -191,8 +192,8 @@ export default function WorldMap() {
         >
           {/* Countries */}
           <Geographies geography={GEO_URL}>
-            {({ geographies }) =>
-              geographies.map((geo) => (
+            {({ geographies }: { geographies: GeoFeature[] }) =>
+              geographies.map((geo: GeoFeature) => (
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
@@ -225,7 +226,7 @@ export default function WorldMap() {
             <Marker
               key={src.name}
               coordinates={src.coords}
-              onMouseEnter={(e) => {
+              onMouseEnter={(e: React.MouseEvent<SVGGElement>) => {
                 const rect = containerRef.current?.getBoundingClientRect()
                 if (rect) {
                   setTooltip({ node: src, x: e.clientX - rect.left, y: e.clientY - rect.top })
