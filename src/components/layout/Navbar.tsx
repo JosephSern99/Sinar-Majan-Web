@@ -7,7 +7,7 @@ import { NAV_LINKS } from '../../data/content'
 const font = { fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif" }
 
 // Pages whose hero is dark (#1a1e2e) — navbar starts white text
-const DARK_HERO_PAGES = ['/about', '/what-we-supply', '/global-reach', '/contact']
+const DARK_HERO_PAGES = ['/about', '/what-we-supply', '/global-reach', '/contact', '/oil-and-gas', '/aviation', '/hedge-fund']
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)

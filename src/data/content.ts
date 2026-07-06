@@ -1,22 +1,26 @@
 import type { Product, Differentiator } from '../types'
 
 export const NAV_LINKS = [
-  { label: 'What We Supply', href: '/what-we-supply' },
-  { label: 'About', href: '/about' },
+  { label: 'Oil & Gas', href: '/oil-and-gas' },
+  { label: 'Metals & Materials', href: '/what-we-supply' },
   { label: 'Global Reach', href: '/global-reach' },
+  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
 
 export const TICKER_ITEMS = [
+  { label: 'BRENT CRUDE', price: '$78.50/bbl', change: '+0.8%', up: true },
+  { label: 'WTI CRUDE', price: '$74.20/bbl', change: '-0.3%', up: false },
+  { label: 'GAS OIL (ULSD)', price: '$680/t', change: '+1.1%', up: true },
+  { label: 'JET FUEL A-1', price: '$720/t', change: '-0.5%', up: false },
+  { label: 'LPG PROPANE', price: '$580/t', change: '+0.4%', up: true },
+  { label: 'FUEL OIL 180', price: '$415/t', change: '-0.7%', up: false },
   { label: 'MILD STEEL BAR', price: 'RM 2,850/t', change: '+1.2%', up: true },
   { label: 'HOT ROLLED COIL', price: 'RM 3,120/t', change: '-0.8%', up: false },
   { label: 'ALUMINIUM INGOT', price: 'RM 9,450/t', change: '+0.5%', up: true },
   { label: 'COPPER CATHODE', price: 'RM 38,200/t', change: '-1.1%', up: false },
   { label: 'STAINLESS STEEL 304', price: 'RM 12,800/t', change: '+0.3%', up: true },
-  { label: 'WIRE ROD', price: 'RM 2,650/t', change: '-0.6%', up: false },
   { label: 'H-BEAM', price: 'RM 3,900/t', change: '+0.9%', up: true },
-  { label: 'CEMENT OPC', price: 'RM 420/t', change: '-0.2%', up: false },
-  { label: 'STEEL PIPE', price: 'RM 4,200/t', change: '+0.7%', up: true },
   { label: 'ZINC INGOT', price: 'RM 11,800/t', change: '+0.4%', up: true },
 ]
 
@@ -74,6 +78,10 @@ export const DIFFERENTIATORS: Differentiator[] = [
 ]
 
 export const PRODUCT_INTEREST_OPTIONS = [
+  'Diesel (Gas Oil)',
+  'Jet Fuel (Avtur / A-1)',
+  'LPG (Liquefied Petroleum Gas)',
+  'Fuel Oil',
   'Ferrous Metals',
   'Non-Ferrous Metals',
   'Industrial Commodities',

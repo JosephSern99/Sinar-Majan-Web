@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, Layers, Zap, Package, ShieldCheck, Truck, FileCheck, ShoppingCart } from 'lucide-react'
+import { ArrowRight, Layers, Zap, Package, ShieldCheck, Truck, FileCheck, ShoppingCart, Droplets, Plane, TrendingUp } from 'lucide-react'
 import Ticker from '../components/ui/Ticker'
 import { STATS, PRODUCTS, DIFFERENTIATORS } from '../data/content'
 
@@ -9,6 +9,45 @@ const DIFF_ICONS = [ShoppingCart, ShieldCheck, Truck, FileCheck]
 
 const font = { fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif" }
 const serif = { fontFamily: "'Playfair Display', Georgia, serif" }
+
+const BUSINESS_LINES = [
+  {
+    icon: Droplets,
+    label: 'Oil & Gas Trading',
+    sub: 'Diesel · Jet Fuel · LPG',
+    desc: 'Buy and sell petroleum products sourced from regional refineries across Malaysia and Southeast Asia.',
+    href: '/oil-and-gas',
+    accent: '#f59e0b',
+    live: true,
+  },
+  {
+    icon: Layers,
+    label: 'Metals & Materials',
+    sub: 'Ferrous · Non-Ferrous · Industrial',
+    desc: 'Mill-direct supply of structural steel, aluminium, copper, and industrial commodities for construction and manufacturing.',
+    href: '/what-we-supply',
+    accent: '#0d9488',
+    live: true,
+  },
+  {
+    icon: Plane,
+    label: 'Aviation Trading',
+    sub: 'Avtur · Jet A-1 · SAF',
+    desc: 'Dedicated aviation fuel supply and management — into-plane services for commercial and private operators.',
+    href: '/aviation',
+    accent: '#60a5fa',
+    live: false,
+  },
+  {
+    icon: TrendingUp,
+    label: 'Futures & Hedge Funds',
+    sub: 'Derivatives · Hedging · Funds',
+    desc: 'Commodity futures trading and institutional fund management across energy and metals markets.',
+    href: '/hedge-fund',
+    accent: '#a78bfa',
+    live: false,
+  },
+]
 
 export default function Home() {
   return (
@@ -29,7 +68,7 @@ export default function Home() {
             style={{ ...font, background: 'rgba(13,148,136,0.08)', color: '#0d9488', border: '1px solid rgba(13,148,136,0.15)' }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-            Globally Sourced · B2B Supply · Malaysia
+            Energy · Commodities · Metals · Malaysia
           </motion.div>
 
           <motion.h1
@@ -39,10 +78,9 @@ export default function Home() {
             className="text-5xl sm:text-6xl lg:text-7xl xl:text-[80px] font-bold text-slate-900 leading-[1.04] max-w-4xl mb-7"
             style={serif}
           >
-            Supplying the metals
+            Energy & commodities,
             <br />
-            that build{' '}
-            <em className="not-italic" style={{ color: '#0d9488' }}>the world.</em>
+            <em className="not-italic" style={{ color: '#0d9488' }}>delivered.</em>
           </motion.h1>
 
           <motion.p
@@ -52,9 +90,9 @@ export default function Home() {
             className="text-lg text-slate-500 max-w-xl leading-relaxed mb-10"
             style={font}
           >
-            Sinar Majan connects global production mills to engineering firms,
-            sub-contractors, and factories — delivering ferrous metals, non-ferrous
-            metals, and industrial commodities with precision and reliability.
+            Sinar Majan trades oil & gas products, metals, and industrial commodities —
+            sourced globally, delivered across Malaysia and Southeast Asia to operators,
+            manufacturers, and project sites.
           </motion.p>
 
           <motion.div
@@ -64,11 +102,11 @@ export default function Home() {
             className="flex flex-col sm:flex-row gap-4"
           >
             <Link
-              to="/what-we-supply"
+              to="/oil-and-gas"
               className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-white px-8 py-4 rounded-xl transition-all duration-200 hover:opacity-90 hover:scale-105 group"
               style={{ ...font, background: 'linear-gradient(135deg, #0d9488 0%, #00d4aa 100%)' }}
             >
-              Explore Our Supply
+              Explore Oil & Gas
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
             <Link
@@ -82,6 +120,57 @@ export default function Home() {
         </div>
 
         <Ticker />
+      </section>
+
+      {/* ── BUSINESS LINES ── */}
+      <section style={{ background: '#1a1e2e' }} className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-12">
+            <p className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ ...font, color: '#00d4aa' }}>/ What We Do</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white" style={serif}>Our business lines</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {BUSINESS_LINES.map((line, i) => {
+              const Icon = line.icon
+              return (
+                <motion.div
+                  key={line.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                >
+                  <Link
+                    to={line.href}
+                    className="group flex flex-col h-full p-7 transition-all duration-200"
+                    style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 16 }}
+                  >
+                    <div className="flex items-start justify-between mb-5">
+                      <div
+                        className="w-10 h-10 rounded-xl flex items-center justify-center"
+                        style={{ background: `${line.accent}18`, border: `1px solid ${line.accent}30` }}
+                      >
+                        <Icon size={18} style={{ color: line.accent }} />
+                      </div>
+                      {!line.live && (
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.3)', ...font }}>
+                          Soon
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-xs font-semibold mb-1" style={{ color: line.accent, ...font }}>{line.sub}</div>
+                    <h3 className="font-bold text-white mb-3 group-hover:opacity-90 transition-opacity" style={{ ...font, fontSize: 15 }}>{line.label}</h3>
+                    <p className="text-xs leading-relaxed flex-1" style={{ ...font, color: '#64748b' }}>{line.desc}</p>
+                    <div className="mt-5 flex items-center gap-1.5 text-xs font-semibold group-hover:gap-2.5 transition-all" style={{ color: line.accent }}>
+                      {line.live ? 'View details' : 'Learn more'}
+                      <ArrowRight size={11} />
+                    </div>
+                  </Link>
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
       </section>
 
       {/* ── STATS ── */}
@@ -158,7 +247,7 @@ export default function Home() {
               <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight" style={serif}>What we supply</h2>
             </div>
             <Link to="/what-we-supply" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-teal-600 transition-colors group shrink-0" style={font}>
-              Full catalogue <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              Metals catalogue <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
