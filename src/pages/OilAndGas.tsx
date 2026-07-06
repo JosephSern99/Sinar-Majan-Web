@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Droplets, Flame, Wind, TrendingUp, Ship, Globe } from 'lucide-react'
+import { useHashScroll } from '../hooks/useHashScroll'
 
 const font = { fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif" }
 const serif = { fontFamily: "'Playfair Display', Georgia, serif" }
@@ -78,6 +79,7 @@ const HOW_WE_TRADE = [
 ]
 
 export default function OilAndGas() {
+  useHashScroll()
   return (
     <>
       {/* ── HERO ── */}
@@ -199,12 +201,13 @@ export default function OilAndGas() {
               return (
                 <motion.div
                   key={p.id}
+                  id={p.id}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.55, delay: i * 0.1 }}
                   className="overflow-hidden"
-                  style={{ borderRadius: 20, border: '1px solid rgba(255,255,255,0.06)' }}
+                  style={{ borderRadius: 20, border: '1px solid rgba(255,255,255,0.06)', scrollMarginTop: '88px' }}
                 >
                   <div className="grid lg:grid-cols-2">
                     {/* Photo panel */}

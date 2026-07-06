@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Layers, Zap, Package } from 'lucide-react'
 import { PRODUCTS } from '../data/content'
+import { useHashScroll } from '../hooks/useHashScroll'
 
 const ICONS: Record<string, React.ElementType> = { layers: Layers, zap: Zap, package: Package }
 
@@ -45,7 +46,7 @@ function ProductSection({
 }) {
   const Icon = ICONS[product.icon]
   return (
-    <section className={`py-24 px-6 ${index % 2 === 0 ? 'bg-[#FAFAF8]' : 'bg-[#F4F4F0]'}`}>
+    <section id={product.id} className={`py-24 px-6 ${index % 2 === 0 ? 'bg-[#FAFAF8]' : 'bg-[#F4F4F0]'}`} style={{ scrollMarginTop: '88px' }}>
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-5 gap-16">
           {/* Left */}
@@ -100,6 +101,7 @@ function ProductSection({
 }
 
 export default function WhatWeSupply() {
+  useHashScroll()
   const sections = [
     { product: PRODUCTS[0], items: FERROUS_ITEMS },
     { product: PRODUCTS[1], items: NON_FERROUS_ITEMS },

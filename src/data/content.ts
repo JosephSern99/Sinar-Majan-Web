@@ -4,9 +4,9 @@ export const NAV_LINKS = [
   {
     label: 'Oil & Gas',
     children: [
-      { label: 'Gas Oil / Diesel', href: '/oil-and-gas', desc: 'ULSD · EN 590 · Marine Gas Oil' },
-      { label: 'Jet Fuel A-1', href: '/oil-and-gas', desc: 'Avtur · DEF STAN 91-091 certified' },
-      { label: 'LPG', href: '/oil-and-gas', desc: 'Propane · Butane · Autogas' },
+      { label: 'Gas Oil / Diesel', href: '/oil-and-gas#diesel', desc: 'ULSD · EN 590 · Marine Gas Oil' },
+      { label: 'Jet Fuel A-1', href: '/oil-and-gas#jetfuel', desc: 'Avtur · DEF STAN 91-091 certified' },
+      { label: 'LPG', href: '/oil-and-gas#lpg', desc: 'Propane · Butane · Autogas' },
       { label: 'Aviation Trading', href: '/aviation', desc: 'Into-plane · Fuel management', soon: true },
       { label: 'Futures & Hedge Funds', href: '/hedge-fund', desc: 'Derivatives · Price hedging · Funds', soon: true },
     ],
@@ -14,9 +14,9 @@ export const NAV_LINKS = [
   {
     label: 'Metals & Materials',
     children: [
-      { label: 'Ferrous Metals', href: '/what-we-supply', desc: 'Steel bars · Beams · Plates · Pipes' },
-      { label: 'Non-Ferrous Metals', href: '/what-we-supply', desc: 'Aluminium · Copper · Stainless · Zinc' },
-      { label: 'Industrial Commodities', href: '/what-we-supply', desc: 'Cement · Aggregates · PVC · Fasteners' },
+      { label: 'Ferrous Metals', href: '/what-we-supply#ferrous', desc: 'Steel bars · Beams · Plates · Pipes' },
+      { label: 'Non-Ferrous Metals', href: '/what-we-supply#non-ferrous', desc: 'Aluminium · Copper · Stainless · Zinc' },
+      { label: 'Industrial Commodities', href: '/what-we-supply#industrial', desc: 'Cement · Aggregates · PVC · Fasteners' },
     ],
   },
   { label: 'Global Reach', href: '/global-reach' },
