@@ -46,7 +46,7 @@ export default function Footer() {
             <div className="text-xs tracking-widest uppercase text-slate-600 font-semibold mb-5">Navigation</div>
             <nav className="flex flex-col gap-3">
               {NAV_LINKS.map((link) => {
-                const href = link.href ?? link.children?.[0]?.href ?? '/'
+                const href: string = link.href ?? link.children?.[0]?.href ?? '/'
                 return (
                   <Link
                     key={link.label}
