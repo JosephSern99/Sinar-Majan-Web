@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Globe, Factory, Ship, Anchor } from 'lucide-react'
-import WorldMap from '../components/ui/WorldMap'
+import Globe3D from '../components/ui/Globe3D'
 
 const font = { fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif" }
 const serif = { fontFamily: "'Playfair Display', Georgia, serif" }
@@ -113,7 +113,7 @@ export default function GlobalReach() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.4 }}
           >
-            <WorldMap />
+            <Globe3D />
           </motion.div>
         </div>
       </section>
