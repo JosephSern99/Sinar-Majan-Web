@@ -9,6 +9,7 @@ export interface NavLink {
   label: string;
   href?: string;
   children?: NavChild[];
+  disabled?: boolean;
 }
 
 export interface TickerItem {

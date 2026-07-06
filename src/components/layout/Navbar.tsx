@@ -215,6 +215,18 @@ export default function Navbar() {
             }
 
             // Plain link
+            if (link.disabled) {
+              return (
+                <span
+                  key={link.href}
+                  className="px-3 py-2 text-sm font-medium rounded-lg cursor-not-allowed select-none"
+                  style={{ color: navColor, opacity: 0.4 }}
+                >
+                  {link.label}
+                </span>
+              )
+            }
+
             return (
               <Link
                 key={link.href}
@@ -349,19 +361,30 @@ export default function Navbar() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.04 }}
                   >
-                    <Link
-                      to={link.href!}
-                      className="flex items-center justify-between py-3.5 px-4 rounded-xl"
-                      style={{
-                        background: active ? 'rgba(13,148,136,0.1)' : 'transparent',
-                        border: active ? '1px solid rgba(13,148,136,0.18)' : '1px solid transparent',
-                      }}
-                    >
-                      <span className="text-sm font-semibold" style={{ color: active ? '#00d4aa' : 'rgba(255,255,255,0.75)', ...font }}>
-                        {link.label}
-                      </span>
-                      <ArrowRight size={14} style={{ color: active ? '#00d4aa' : 'rgba(255,255,255,0.2)' }} />
-                    </Link>
+                    {link.disabled ? (
+                      <div
+                        className="flex items-center justify-between py-3.5 px-4 rounded-xl cursor-not-allowed"
+                        style={{ opacity: 0.35, border: '1px solid transparent' }}
+                      >
+                        <span className="text-sm font-semibold" style={{ color: 'rgba(255,255,255,0.75)', ...font }}>
+                          {link.label}
+                        </span>
+                      </div>
+                    ) : (
+                      <Link
+                        to={link.href!}
+                        className="flex items-center justify-between py-3.5 px-4 rounded-xl"
+                        style={{
+                          background: active ? 'rgba(13,148,136,0.1)' : 'transparent',
+                          border: active ? '1px solid rgba(13,148,136,0.18)' : '1px solid transparent',
+                        }}
+                      >
+                        <span className="text-sm font-semibold" style={{ color: active ? '#00d4aa' : 'rgba(255,255,255,0.75)', ...font }}>
+                          {link.label}
+                        </span>
+                        <ArrowRight size={14} style={{ color: active ? '#00d4aa' : 'rgba(255,255,255,0.2)' }} />
+                      </Link>
+                    )}
                   </motion.div>
                 )
               })}
