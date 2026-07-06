@@ -9,8 +9,8 @@ const serif = { fontFamily: "'Playfair Display', Georgia, serif" }
 // Unsplash photo IDs — dark overlay ensures readability if any fail to load
 const PHOTOS = {
   hero:    'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=1920&q=80',
-  diesel:  'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80',
-  jetfuel: 'https://images.unsplash.com/photo-1436891620584-47fd0e565afb?auto=format&fit=crop&w=900&q=80',
+  diesel:  'https://images.unsplash.com/photo-1718220592377-aa2226e0d45d?auto=format&fit=crop&w=900&q=80',
+  jetfuel: 'https://images.unsplash.com/photo-1541612529637-7f8d12b21635?auto=format&fit=crop&w=900&q=80',
   lpg:     'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=900&q=80',
 }
 

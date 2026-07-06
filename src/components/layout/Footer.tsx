@@ -2,19 +2,16 @@ import { Link } from 'react-router-dom'
 import { NAV_LINKS } from '../../data/content'
 import { Mail, Phone, MapPin } from 'lucide-react'
 
+const font = { fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif" }
+
 export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer
-      style={{
-        background: '#1a1e2e',
-        fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
-      }}
-      className="text-slate-400 py-16 px-6"
-    >
+    <footer style={{ background: '#1a1e2e', ...font }} className="text-slate-400 py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-10 pb-12 border-b border-slate-700/50">
+
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
@@ -27,8 +24,8 @@ export default function Footer() {
               <span className="text-white font-bold text-sm">Sinar Majan</span>
             </div>
             <p className="text-sm text-slate-500 leading-relaxed max-w-xs mb-6">
-              Authorized bulk dealer of ferrous & non-ferrous metals and industrial
-              commodities. Globally sourced. Delivered across Malaysia.
+              Bulk trading of oil & gas products, ferrous & non-ferrous metals,
+              and industrial commodities. Globally sourced. Delivered across Malaysia.
             </p>
             <div className="flex flex-col gap-3 text-sm">
               {[
@@ -44,29 +41,41 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Navigation — handles both plain links and dropdown parents */}
           <div>
             <div className="text-xs tracking-widest uppercase text-slate-600 font-semibold mb-5">Navigation</div>
             <nav className="flex flex-col gap-3">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-sm text-slate-500 hover:text-white transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {NAV_LINKS.map((link) => {
+                const href = link.href ?? link.children?.[0]?.href ?? '/'
+                return (
+                  <Link
+                    key={link.label}
+                    to={href}
+                    className="text-sm text-slate-500 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                )
+              })}
             </nav>
           </div>
 
-          {/* Supply */}
+          {/* Quick links */}
           <div>
-            <div className="text-xs tracking-widest uppercase text-slate-600 font-semibold mb-5">What We Supply</div>
-            <div className="flex flex-col gap-3 text-sm text-slate-500">
-              <span>Ferrous Metals</span>
-              <span>Non-Ferrous Metals</span>
-              <span>Industrial Commodities</span>
+            <div className="text-xs tracking-widest uppercase text-slate-600 font-semibold mb-5">Products</div>
+            <div className="flex flex-col gap-3 text-sm">
+              {[
+                { label: 'Gas Oil / Diesel', href: '/oil-and-gas#diesel' },
+                { label: 'Jet Fuel A-1', href: '/oil-and-gas#jetfuel' },
+                { label: 'LPG', href: '/oil-and-gas#lpg' },
+                { label: 'Ferrous Metals', href: '/what-we-supply#ferrous' },
+                { label: 'Non-Ferrous Metals', href: '/what-we-supply#non-ferrous' },
+                { label: 'Industrial Commodities', href: '/what-we-supply#industrial' },
+              ].map(({ label, href }) => (
+                <Link key={label} to={href} className="text-slate-500 hover:text-white transition-colors">
+                  {label}
+                </Link>
+              ))}
               <Link to="/contact" className="mt-2 text-teal-400 hover:text-teal-300 transition-colors font-medium">
                 Request a Quote →
               </Link>
