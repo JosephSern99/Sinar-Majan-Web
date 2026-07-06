@@ -1,6 +1,14 @@
-export interface NavLink {
+export interface NavChild {
   label: string;
   href: string;
+  desc: string;
+  soon?: boolean;
+}
+
+export interface NavLink {
+  label: string;
+  href?: string;
+  children?: NavChild[];
 }
 
 export interface TickerItem {
