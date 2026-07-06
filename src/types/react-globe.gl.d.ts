@@ -27,7 +27,7 @@ declare module 'react-globe.gl' {
     ringsData?: object[]
     ringLat?: string | ((d: object) => number)
     ringLng?: string | ((d: object) => number)
-    ringColor?: string | ((d: object) => string | string[])
+    ringColor?: string | ((d: object) => string | string[] | ((t: number) => string))
     ringMaxRadius?: string | number | ((d: object) => number)
     ringPropagationSpeed?: string | number | ((d: object) => number)
     ringRepeatPeriod?: string | number | ((d: object) => number)

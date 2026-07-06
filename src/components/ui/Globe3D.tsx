@@ -157,10 +157,11 @@ export default function Globe3D() {
           ringLng="lng"
           ringColor={(d: object) => {
             const r = d as typeof RINGS[0]
-            return (t: number) => {
+            const fn = (t: number) => {
               const alpha = Math.max(0, 1 - t)
               return r.color + Math.round(alpha * 200).toString(16).padStart(2, '0')
             }
+            return fn
           }}
           ringMaxRadius="maxR"
           ringPropagationSpeed="propagationSpeed"
