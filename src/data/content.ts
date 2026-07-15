@@ -7,8 +7,8 @@ export const NAV_LINKS = [
       { label: 'Gas Oil / Diesel', href: '/oil-and-gas#diesel', desc: 'ULSD · EN 590 · Marine Gas Oil' },
       { label: 'Jet Fuel A-1', href: '/oil-and-gas#jetfuel', desc: 'Avtur · DEF STAN 91-091 certified' },
       { label: 'LPG', href: '/oil-and-gas#lpg', desc: 'Propane · Butane · Autogas' },
-      // { label: 'Aviation Trading', href: '/aviation', desc: 'Into-plane · Fuel management', soon: true },
-      // { label: 'Futures & Hedge Funds', href: '/hedge-fund', desc: 'Derivatives · Price hedging · Funds', soon: true },
+      { label: 'Aviation Trading', href: '/aviation', desc: 'Into-plane · Fuel management', soon: true },
+      { label: 'Futures & Hedge Funds', href: '/hedge-fund', desc: 'Derivatives · Price hedging · Funds', soon: true },
     ],
   },
   {
@@ -21,7 +21,7 @@ export const NAV_LINKS = [
   },
   { label: 'Global Reach', href: '/global-reach' },
   { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact', disabled: true },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export const TICKER_ITEMS = [
