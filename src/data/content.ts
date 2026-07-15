@@ -1,6 +1,6 @@
-import type { Product, Differentiator } from '../types'
+import type { NavLink, Product, Differentiator } from '../types'
 
-export const NAV_LINKS = [
+export const NAV_LINKS: NavLink[] = [
   {
     label: 'Oil & Gas',
     children: [
